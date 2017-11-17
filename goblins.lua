@@ -102,8 +102,8 @@ mobs_goblins:register_mob("mobs_goblins:goblin_cobble", {
 	damage = 1,
 	attack_type = "dogfight",
 	attacks_monsters = true,
-	hp_min = 5,
-	hp_max = 10,
+	hp_min = 110,
+	hp_max = 115,
 	armor = 100,
 	collisionbox = {-0.35,-1,-0.35, 0.35,-.1,0.35},
 	visual = "mesh",
@@ -225,8 +225,8 @@ mobs_goblins:register_mob("mobs_goblins:goblin_digger", {
 	damage = 1,
 	attack_type = "dogfight",
 	attacks_monsters = true,
-	hp_min = 5,
-	hp_max = 10,
+	hp_min = 105,
+	hp_max = 110,
 	armor = 100,
 	collisionbox = {-0.35,-1,-0.35, 0.35,-.1,0.35},
 	visual = "mesh",
@@ -352,8 +352,8 @@ mobs_goblins:register_mob("mobs_goblins:goblin_coal", {
 	damage = 1,
 	attack_type = "dogfight",
 	attacks_monsters = true,
-	hp_min = 5,
-	hp_max = 10,
+	hp_min = 105,
+	hp_max = 110,
 	armor = 100,
 	collisionbox = {-0.35,-1,-0.35, 0.35,-.1,0.35},
 	visual = "mesh",
@@ -472,8 +472,8 @@ mobs_goblins:register_mob("mobs_goblins:goblin_iron", {
 	damage = 2,
 	attack_type = "dogfight",
 	attacks_monsters = false,
-	hp_min = 10,
-	hp_max = 20,
+	hp_min = 110,
+	hp_max = 120,
 	armor = 100,
 	collisionbox = {-0.35,-1,-0.35, 0.35,-.1,0.35},
 	visual = "mesh",
@@ -593,8 +593,8 @@ mobs_goblins:register_mob("mobs_goblins:goblin_copper", {
 	damage = 2,
 	attack_type = "dogfight",
 	attacks_monsters = false,
-	hp_min = 10,
-	hp_max = 20,
+	hp_min = 110,
+	hp_max = 120,
 	armor = 100,
 	collisionbox = {-0.35,-1,-0.35, 0.35,-.1,0.35},
 	visual = "mesh",
@@ -714,8 +714,8 @@ mobs_goblins:register_mob("mobs_goblins:goblin_gold", {
 	damage = 3,
 	attack_type = "dogfight",
 	attacks_monsters = false,
-	hp_min = 10,
-	hp_max = 30,
+	hp_min = 110,
+	hp_max = 130,
 	armor = 100,
 	collisionbox = {-0.35,-1,-0.35, 0.35,-.1,0.35},
 	visual = "mesh",
@@ -834,8 +834,8 @@ mobs_goblins:register_mob("mobs_goblins:goblin_diamond", {
 	damage = 3,
 	attack_type = "dogfight",
 	attacks_monsters = false,
-	hp_min = 20,
-	hp_max = 30,
+	hp_min = 120,
+	hp_max = 130,
 	armor = 100,
 	collisionbox = {-0.35,-1,-0.35, 0.35,-.1,0.35},
 	visual = "mesh",
@@ -954,8 +954,8 @@ mobs_goblins:register_mob("mobs_goblins:goblin_king", {
 	damage = 4,
 	attack_type = "dogfight",
 	attacks_monsters = false,
-	hp_min = 20,
-	hp_max = 40,
+	hp_min = 139,
+	hp_max = 140,
 	armor = 100,
 	collisionbox = {-0.35,-1,-0.35, 0.35,-.1,0.35},
 	visual = "mesh",
@@ -1090,13 +1090,13 @@ active_object_count,
 min_height, 
 max_height)
 ]]
-mobs_goblins:spawn_specific("mobs_goblins:goblin_cobble", {"group:stone"}, "air", 2, 6, 1, 10, 3, -30000 , -30, 25)
-mobs_goblins:spawn_specific("mobs_goblins:goblin_digger", {"group:stone"},  "air", 2, 6, 1, 10, 3, -30000 , -30, 25)
-mobs_goblins:spawn_specific("mobs_goblins:goblin_coal", {"default:stone_with_coal", "default:mossycobble"}, "air", 2, 6, 1, 2, 3, -30000, -30, 30)
-mobs_goblins:spawn_specific("mobs_goblins:goblin_iron", {"default:stone_with_iron", "default:mossycobble"}, "air", 2, 6, 1, 2, 3, -30000, -50, 35)
-mobs_goblins:spawn_specific("mobs_goblins:goblin_copper", {"default:stone_with_copper", "default:mossycobble"}, "air", 2, 6, 1, 2, 3, -30000, -50, 40)
-mobs_goblins:spawn_specific("mobs_goblins:goblin_gold", {"default:stone_with_gold", "default:mossycobble"}, "air", 2, 6, 1, 2, 3, -30000, -70, 45)
-mobs_goblins:spawn_specific("mobs_goblins:goblin_diamond", {"default:stone_with_diamond", "default:mossycobble" }, "air", 2, 6, 1, 2, 3, -30000, -110, 45)
-mobs_goblins:spawn_specific("mobs_goblins:goblin_king", {"default:mossycobble",},"air", 2, 6, 1, 10, 3, -30000, -130, 50)
+mobs_goblins:spawn_specific("mobs_goblins:goblin_cobble", {"group:stone"}, "air", 2, 6, 10, 10, 3, -30000 , -50, 15)
+mobs_goblins:spawn_specific("mobs_goblins:goblin_digger", {"group:stone"},  "air", 2, 6, 10, 10, 3, -30000 , -50, 15)
+mobs_goblins:spawn_specific("mobs_goblins:goblin_coal", {"default:stone_with_coal", "default:mossycobble"}, "air",2, 6, 10, 2, 3, -30000, -50, 20)
+mobs_goblins:spawn_specific("mobs_goblins:goblin_iron", {"default:stone_with_iron", "default:mossycobble"}, "air", 2, 6, 10, 2, 3, -30000, -20, 20)
+mobs_goblins:spawn_specific("mobs_goblins:goblin_copper", {"default:stone_with_copper", "default:mossycobble"}, "air", 2, 6, 10, 2, 3, -30000, -20, 20)
+mobs_goblins:spawn_specific("mobs_goblins:goblin_gold", {"default:stone_with_gold", "default:mossycobble"}, "air",3, 5, 10, 2, 3, -30000, -40, 20)
+mobs_goblins:spawn_specific("mobs_goblins:goblin_diamond", {"default:stone_with_diamond", "default:mossycobble" }, "air", 3, 5, 10,2, 3, -30000, -80, 30)
+mobs_goblins:spawn_specific("mobs_goblins:goblin_king", {"default:mossycobble",},"air", 3, 5, 10, 10, 3, -30000, -100, 30)
 mobs_goblins:register_egg("mobs_goblins:goblin_cobble", "goblin egg", "default:mossycobble", 1) 
 
