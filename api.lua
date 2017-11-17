@@ -1215,10 +1215,14 @@ self.attack = nil
 				})
 			end
 
+ 			--local hp = self.object:get_hp()
+ 			
 			-- exit here if dead
 			if check_for_death(self) then
+				say("returning")
 				return
 			end
+
 
 			-- blood_particles
 			if self.blood_amount > 0
@@ -1267,7 +1271,7 @@ end
 
 mobs_goblins.spawning_mobs = {}
 
-function mobs_goblins:spawn_specific(name, nodes, neighbors, min_light, max_light, interval, chance, active_object_count, min_height, max_height)
+function mobs_goblins:spawn_specific(name, nodes, neighbors, min_light, max_light, interval, chance, active_object_count, min_height, max_height, min_spawn_dist)
 	mobs_goblins.spawning_mobs[name] = true
 	minetest.register_abm({
 		nodenames = nodes,
@@ -1285,6 +1289,16 @@ function mobs_goblins:spawn_specific(name, nodes, neighbors, min_light, max_ligh
 			-- spawn above node
 			pos.y = pos.y + 1
 
+				if minetest.is_singleplayer() or false then --unknown gameplay in multiplayer - more players, more attack probabilities
+ 				for _,player in ipairs(minetest.get_connected_players()) do
+ 					local playerPos = player:getpos()
+ 					local dist = ((playerPos.x - pos.x) ^ 2 + (playerPos.y - pos.y) ^ 2 + (playerPos.z - pos.z) ^ 2) ^ 0.5
+ 					if (dist < min_spawn_dist) then
+ 						return
+ 					end
+ 				end
+ 			end
+ 	
 			-- mobs cannot spawn inside protected areas if enabled
 			if mobs_goblins.protected == 1
 			and minetest.is_protected(pos, "") then
@@ -1428,10 +1442,17 @@ function mobs_goblins:explosion(pos, radius, fire, smoke, sound)
 	end
 end
 
+function say(text)
+ 	for _,player in ipairs(minetest.get_connected_players()) do
+ 		local name = player:get_player_name()
+ 		minetest.chat_send_player(name, text)
+ 	end
+ end
+
 -- on mob death drop items
 function check_for_death(self)
 	local hp = self.object:get_hp()
-	if hp > 0 then
+	if hp > 100 then
 		self.health = hp
 		if self.sounds.damage ~= nil then
 			minetest.sound_play(self.sounds.damage,{
@@ -1443,6 +1464,7 @@ function check_for_death(self)
 	end
 	local pos = self.object:getpos()
 	self.object:remove()
+ 	say("dead")
 	local obj = nil
 	for _,drop in ipairs(self.drops) do
 		if math.random(1, drop.chance) == 1 then
